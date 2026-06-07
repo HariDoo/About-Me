@@ -13,7 +13,7 @@
   var BASE_SPEED = 0.35;
   var COLORS = [
     "rgba(104,195,163,", // #68c3a3  (green accent)
-    "rgba(82,179,217,",  // #52b3d9  (blue accent)
+    "rgba(82,179,217,", // #52b3d9  (blue accent)
     "rgba(255,255,255,", // white
     "rgba(149,165,166,", // grey
   ];
@@ -62,7 +62,10 @@
         this.vx += dx * force;
         this.vy += dy * force;
         // Brighten near cursor
-        this.alpha = Math.min(1, this.baseAlpha + (1 - dist / MOUSE_RADIUS) * 0.5);
+        this.alpha = Math.min(
+          1,
+          this.baseAlpha + (1 - dist / MOUSE_RADIUS) * 0.5,
+        );
         this.radius = this.baseRadius + (1 - dist / MOUSE_RADIUS) * 2;
       }
     }
@@ -97,7 +100,7 @@
     /* Glow */
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius * 3, 0, Math.PI * 2);
-    ctx.fillStyle = this.color + (this.alpha * 0.08) + ")";
+    ctx.fillStyle = this.color + this.alpha * 0.08 + ")";
     ctx.fill();
   };
 

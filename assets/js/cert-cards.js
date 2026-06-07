@@ -9,7 +9,9 @@
      1. 3D TILT EFFECT — Cards tilt toward cursor on hover
      ============================================================ */
   function initTilt() {
-    var cards = document.querySelectorAll(".cert-card[data-tilt], .project-card[data-tilt]");
+    var cards = document.querySelectorAll(
+      ".cert-card[data-tilt], .project-card[data-tilt]",
+    );
     var MAX_TILT = 12; // degrees
 
     cards.forEach(function (card) {
@@ -24,7 +26,11 @@
         var rotateX = ((cy - y) / cy) * MAX_TILT;
 
         card.style.transform =
-          "rotateX(" + rotateX.toFixed(2) + "deg) rotateY(" + rotateY.toFixed(2) + "deg) scale3d(1.03, 1.03, 1.03)";
+          "rotateX(" +
+          rotateX.toFixed(2) +
+          "deg) rotateY(" +
+          rotateY.toFixed(2) +
+          "deg) scale3d(1.03, 1.03, 1.03)";
 
         /* Move the glow spotlight */
         var glow = card.querySelector(".card-glow");
@@ -55,7 +61,9 @@
      2. SCROLL REVEAL — Cards animate in on scroll
      ============================================================ */
   function initScrollReveal() {
-    var wrappers = document.querySelectorAll(".cert-card-wrapper, .project-card-wrapper");
+    var wrappers = document.querySelectorAll(
+      ".cert-card-wrapper, .project-card-wrapper",
+    );
     if (!wrappers.length) return;
 
     // Use IntersectionObserver if available, otherwise show all
@@ -69,7 +77,7 @@
             }
           });
         },
-        { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+        { threshold: 0.15, rootMargin: "0px 0px -40px 0px" },
       );
 
       wrappers.forEach(function (w) {
@@ -114,9 +122,8 @@
       this.vy = (Math.random() - 0.5) * 0.3;
       this.radius = Math.random() * 1.8 + 0.5;
       this.alpha = Math.random() * 0.3 + 0.1;
-      this.color = Math.random() > 0.5
-        ? "rgba(104,195,163,"
-        : "rgba(82,179,217,";
+      this.color =
+        Math.random() > 0.5 ? "rgba(104,195,163," : "rgba(82,179,217,";
       this.pulsePhase = Math.random() * Math.PI * 2;
     }
 
@@ -179,7 +186,7 @@
         function (entries) {
           isVisible = entries[0].isIntersecting;
         },
-        { threshold: 0 }
+        { threshold: 0 },
       );
       obs.observe(section);
     } else {
