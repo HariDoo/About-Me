@@ -144,8 +144,9 @@ jQuery(function($) {
   });
 
   // -------------------------------------------------------------
-  // More skill
+  // More skill (Disabled - Unused Asset)
   // -------------------------------------------------------------
+  /*
   $(".more-skill").bind("inview", function(
     event,
     visible,
@@ -170,6 +171,7 @@ jQuery(function($) {
       $(this).unbind("inview");
     }
   });
+  */
 
   // -------------------------------------------------------------
   // Shuffle (Disabled - Unused Asset)

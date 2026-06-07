@@ -811,3 +811,272 @@ ul.list-check li::before {
     display: block;
   }
 }
+
+/* ================================================================
+   PROJECTS SECTION — Frosted glassmorphic cards, modern CTA
+   ================================================================ */
+.project-section {
+  background: linear-gradient(180deg, #f8fafc 0%, #edf2f7 100%);
+  padding: 120px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-cta-banner {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 16px;
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  margin-bottom: 40px;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .project-cta-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px;
+  }
+}
+
+.project-cta-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+}
+
+.project-cta-content i {
+  font-size: 28px;
+  color: #68c3a3;
+}
+
+.project-cta-content p {
+  margin: 0;
+  font-size: 15px;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+.project-cta-btn {
+  background: linear-gradient(135deg, #68c3a3, #52b3d9);
+  color: #ffffff !important;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(104, 195, 163, 0.25);
+  white-space: nowrap;
+}
+
+.project-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(104, 195, 163, 0.35);
+  text-decoration: none;
+}
+
+.project-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .project-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Individual Card Wrapper */
+.project-card-wrapper {
+  perspective: 1000px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 20px;
+  padding: 35px 30px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
+  will-change: transform;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+.project-card:hover {
+  border-color: rgba(104, 195, 163, 0.3);
+  box-shadow: 0 20px 40px rgba(104, 195, 163, 0.08), 0 5px 15px rgba(82, 179, 217, 0.05);
+}
+
+.project-card .card-glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(104, 195, 163, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.project-card:hover .card-glow {
+  opacity: 1;
+}
+
+.project-icon-box {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(104, 195, 163, 0.1), rgba(82, 179, 217, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: transform 0.3s ease;
+  transform: translateZ(20px);
+}
+
+.project-card:hover .project-icon-box {
+  transform: translateZ(30px) scale(1.05);
+}
+
+.project-icon-box i {
+  font-size: 24px;
+  background: linear-gradient(135deg, #68c3a3, #52b3d9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.project-info {
+  text-align: left;
+  transform: translateZ(10px);
+}
+
+.project-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0 0 6px 0;
+}
+
+.project-tag {
+  font-size: 13px;
+  font-weight: 600;
+  color: #68c3a3;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.project-desc {
+  font-size: 14px;
+  color: #4a5568;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.project-footer {
+  display: flex;
+  gap: 8px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+  transform: translateZ(15px);
+}
+
+.project-tech {
+  font-size: 12px;
+  font-weight: 500;
+  color: #718096;
+  background: rgba(226, 232, 240, 0.5);
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+.project-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+  transform: translateZ(20px);
+}
+
+.project-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none !important;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.project-btn-primary {
+  background: rgba(104, 195, 163, 0.12);
+  color: #68c3a3;
+  border: 1px solid rgba(104, 195, 163, 0.25) !important;
+}
+
+.project-btn-primary:hover {
+  background: rgba(104, 195, 163, 0.22);
+  color: #7dd8b7;
+  border-color: rgba(104, 195, 163, 0.5) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(104, 195, 163, 0.2);
+}
+
+/* ── DOT GRID INTERACTIVE BACKGROUND ── */
+.dot-grid-bg {
+  position: relative;
+}
+
+.dot-grid-bg > .container {
+  position: relative;
+  z-index: 2;
+}
+
+.dot-grid-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+

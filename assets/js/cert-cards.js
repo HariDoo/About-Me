@@ -9,7 +9,7 @@
      1. 3D TILT EFFECT — Cards tilt toward cursor on hover
      ============================================================ */
   function initTilt() {
-    var cards = document.querySelectorAll(".cert-card[data-tilt]");
+    var cards = document.querySelectorAll(".cert-card[data-tilt], .project-card[data-tilt]");
     var MAX_TILT = 12; // degrees
 
     cards.forEach(function (card) {
@@ -55,7 +55,7 @@
      2. SCROLL REVEAL — Cards animate in on scroll
      ============================================================ */
   function initScrollReveal() {
-    var wrappers = document.querySelectorAll(".cert-card-wrapper");
+    var wrappers = document.querySelectorAll(".cert-card-wrapper, .project-card-wrapper");
     if (!wrappers.length) return;
 
     // Use IntersectionObserver if available, otherwise show all
