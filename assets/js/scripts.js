@@ -492,19 +492,54 @@ jQuery(function ($) {
     // Copy portfolio link to clipboard
     $("#copyLinkBtn").on("click", function (e) {
       e.preventDefault();
-      var tempInput = $("<input>");
-      $("body").append(tempInput);
-      tempInput.val(currentUrl).select();
+      var urlToCopy = window.location.href;
 
-      try {
-        document.execCommand("copy");
-        showShareTooltip("Link copied to clipboard!");
-      } catch (err) {
-        showShareTooltip("Could not copy link. Please copy manually.");
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(urlToCopy).then(function() {
+          showShareTooltip("Link copied to clipboard!");
+          $shareDropdown.removeClass("show");
+        }).catch(function() {
+          showShareTooltip("Could not copy link. Please copy manually.");
+          $shareDropdown.removeClass("show");
+        });
+      } else {
+        // Fallback for older browsers
+        var tempInput = document.createElement("textarea");
+        tempInput.value = urlToCopy;
+        
+        // Prevent scrolling to element by positioning it fixed at the top-left of viewport
+        tempInput.style.position = "fixed";
+        tempInput.style.top = "0";
+        tempInput.style.left = "0";
+        tempInput.style.width = "2px";
+        tempInput.style.height = "2px";
+        tempInput.style.padding = "0";
+        tempInput.style.border = "none";
+        tempInput.style.outline = "none";
+        tempInput.style.boxShadow = "none";
+        tempInput.style.background = "transparent";
+        tempInput.style.opacity = "0";
+        tempInput.setAttribute("readonly", ""); // Prevent keyboard popup
+        
+        document.body.appendChild(tempInput);
+        
+        tempInput.select();
+        tempInput.setSelectionRange(0, 99999); // For mobile
+        
+        var successful = false;
+        try {
+          successful = document.execCommand("copy");
+        } catch (err) {}
+        
+        document.body.removeChild(tempInput);
+        
+        if (successful) {
+          showShareTooltip("Link copied to clipboard!");
+        } else {
+          showShareTooltip("Could not copy link. Please copy manually.");
+        }
+        $shareDropdown.removeClass("show");
       }
-
-      tempInput.remove();
-      $shareDropdown.removeClass("show");
     });
 
     function showShareTooltip(msg) {
