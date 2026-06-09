@@ -40,6 +40,8 @@
     <link href="assets/css/style.css" rel="stylesheet" media="screen" />
     <!-- Responsive CSS -->
     <link href="assets/css/responsive.css" rel="stylesheet" />
+    <!-- Three.js Journey Popup CSS -->
+    <link href="assets/css/threejs-journey-popup.css" rel="stylesheet" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -428,6 +430,36 @@
                 <span class="project-tech">AEM / Jsoup</span>
                 <span class="project-tech">CI/CD Pipeline</span>
                 <span class="project-tech">Automation API</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 3: Batmobile Arena -->
+          <div class="project-card-wrapper">
+            <div class="project-card" data-tilt>
+              <div class="card-glow"></div>
+              <div class="project-icon-box">
+                <i class="fa fa-gamepad"></i>
+              </div>
+              <div class="project-info">
+                <h3 class="project-name">Batmobile Arena</h3>
+                <p class="project-tag">3D WebGL / Physics Game</p>
+                <p class="project-desc">
+                  An interactive 3D physics-based toy car driving game inspired by Bruno Simon's portfolio. Drive the Batmobile, jump on ramps, and smash voxel-block targets.
+                </p>
+                <div class="project-actions">
+                  <a
+                    href="batmobile/index.html"
+                    class="project-btn project-btn-primary"
+                  >
+                    <i class="fa fa-play-circle"></i> Play Game
+                  </a>
+                </div>
+              </div>
+              <div class="project-footer">
+                <span class="project-tech">Three.js</span>
+                <span class="project-tech">Cannon-es</span>
+                <span class="project-tech">3D Physics</span>
               </div>
             </div>
           </div>
@@ -1008,5 +1040,50 @@
     <script src="assets/js/cursor-particles.js"></script>
     <script src="assets/js/cert-cards.js"></script>
     <script src="assets/js/dot-grid-particles.js"></script>
+
+    <!-- Three.js Journey Popup HTML -->
+    <div class="threejs-journey is-hover-none js-threejs-journey">
+      <div class="message js-message">
+        <div class="boy">
+          <div class="variant is-hi">
+            <div class="body"></div>
+            <div class="arm js-boy-arm"></div>
+          </div>
+          <div class="variant is-yay"></div>
+          <div class="variant is-shrugging"></div>
+        </div>
+        <div class="bubble">
+          <div class="text">Hey! You seem to really enjoy my portfolio.</div>
+          <div class="tip"></div>
+        </div>
+      </div>
+      <div class="message js-message">
+        <div class="bubble">
+          <div class="text">Would you like to learn how to create cool websites like this?</div>
+          <div class="tip"></div>
+        </div>
+      </div>
+      <div class="message js-message is-answers">
+        <a href="#" class="answer is-no js-no">
+          <span class="background"></span>
+          <span class="hover"></span>
+          <span class="label">Nah, I'm good</span>
+        </a>
+        <a href="https://threejs-journey.com?c=p2" target="_blank" rel="noopener" class="answer is-yes js-yes">
+          <span class="background"></span>
+          <span class="hover"></span>
+          <span class="label">Yes, teach me!</span>
+        </a>
+      </div>
+      <div class="message js-message">
+        <div class="bubble">
+          <div class="text">Alright then.<br>Have fun and try not to break my portfolio!</div>
+          <div class="tip"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Three.js Journey Popup Script -->
+    <script src="assets/js/threejs-journey-popup.js"></script>
   </body>
 </html>
