@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
 
-.threejs-journey {
+.portfolio-popup {
     display: none;
     flex-direction: column;
     justify-content: flex-end;
@@ -14,11 +14,11 @@
     z-index: 999999;
 }
 
-.threejs-journey.is-active {
+.portfolio-popup.is-active {
     display: flex;
 }
 
-.threejs-journey .message {
+.portfolio-popup .message {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -32,12 +32,12 @@
     pointer-events: none;
 }
 
-.threejs-journey .message.is-visible {
+.portfolio-popup .message.is-visible {
     opacity: 1;
     pointer-events: auto;
 }
 
-.threejs-journey .boy {
+.portfolio-popup .boy {
     position: absolute;
     bottom: 100%;
     left: 20px;
@@ -47,7 +47,7 @@
     pointer-events: none;
 }
 
-.threejs-journey .boy .variant {
+.portfolio-popup .boy .variant {
     position: absolute;
     top: 0;
     left: 0;
@@ -57,25 +57,25 @@
     transition: transform .15s ease-in;
 }
 
-.threejs-journey .boy .variant.is-yay {
+.portfolio-popup .boy .variant.is-yay {
     background: url('../images/boyYay.png');
     background-size: 100% 100%;
 }
 
-.threejs-journey .boy .variant.is-shrugging {
+.portfolio-popup .boy .variant.is-shrugging {
     background: url('../images/boyShrugging.png');
     background-size: 100% 100%;
 }
 
-.threejs-journey.is-hover-yes .boy .variant.is-yay,
-.threejs-journey.is-hover-no .boy .variant.is-shrugging,
-.threejs-journey.is-hover-none .boy .variant.is-hi {
+.portfolio-popup.is-hover-yes .boy .variant.is-yay,
+.portfolio-popup.is-hover-no .boy .variant.is-shrugging,
+.portfolio-popup.is-hover-none .boy .variant.is-hi {
     transform: translateY(0);
     transition-delay: .1s;
     transition-timing-function: ease-out;
 }
 
-.threejs-journey .boy .is-hi .body {
+.portfolio-popup .boy .is-hi .body {
     position: absolute;
     top: 0;
     left: 0;
@@ -85,7 +85,7 @@
     background-size: 100% 100%;
 }
 
-.threejs-journey .boy .is-hi .arm {
+.portfolio-popup .boy .is-hi .arm {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -118,7 +118,7 @@
     to { transform: rotate(0) }
 }
 
-.threejs-journey .message .bubble {
+.portfolio-popup .message .bubble {
     position: relative;
     padding: 20px 30px;
     border: 2px solid #ffffff;
@@ -128,7 +128,7 @@
     backdrop-filter: blur(5px);
 }
 
-.threejs-journey .message .tip {
+.portfolio-popup .message .tip {
     position: absolute;
     width: 12px;
     height: 16px;
@@ -138,13 +138,13 @@
     background-size: 100% 100%;
 }
 
-.threejs-journey .message.is-answers {
+.portfolio-popup .message.is-answers {
     display: flex;
     justify-content: flex-end;
     width: 100%;
 }
 
-.threejs-journey .message .answer {
+.portfolio-popup .message .answer {
     position: relative;
     display: flex;
     align-items: center;
@@ -159,7 +159,7 @@
     font-weight: 700;
 }
 
-.threejs-journey .message .answer .background {
+.portfolio-popup .message .answer .background {
     position: absolute;
     top: 0;
     left: 0;
@@ -168,7 +168,7 @@
     border-radius: 8px;
 }
 
-.threejs-journey .message .answer .hover {
+.portfolio-popup .message .answer .hover {
     position: absolute;
     top: 0;
     left: 0;
@@ -182,46 +182,153 @@
     z-index: 1;
 }
 
-.threejs-journey .message .answer:hover .hover {
+.portfolio-popup .message .answer:hover .hover {
     transform: scaleX(1);
 }
 
-.threejs-journey .message .answer .label {
+.portfolio-popup .message .answer .label {
     position: relative;
     z-index: 2;
 }
 
-.threejs-journey .message .answer.is-no {
+.portfolio-popup .message .answer.is-no {
     color: #52b3d9;
 }
 
-.threejs-journey .message .answer.is-no .background {
+.portfolio-popup .message .answer.is-no .background {
     border: 2px solid #52b3d9;
     background: #6886c3;
 }
 
-.threejs-journey .message .answer.is-no:hover {
+.portfolio-popup .message .answer.is-no:hover {
     color: #ffffff;
 }
 
-.threejs-journey .message .answer.is-no .hover {
+.portfolio-popup .message .answer.is-no .hover {
     transform-origin: 100% 0;
     background: #52b3d9;
 }
 
-.threejs-journey .message .answer.is-yes {
+.portfolio-popup .message .answer.is-yes {
     color: #ffffff;
 }
 
-.threejs-journey .message .answer.is-yes .background {
+.portfolio-popup .message .answer.is-yes .background {
     border: 2px solid #68c3a3;
     background: #68c3a3;
 }
 
-.threejs-journey .message .answer.is-yes:hover {
+.portfolio-popup .message .answer.is-yes:hover {
     color: #68c3a3;
 }
 
-.threejs-journey .message .answer.is-yes .hover {
+.portfolio-popup .message .answer.is-yes .hover {
     background: #41b28a;
+}
+
+/* Minimize Button */
+.portfolio-popup .message .bubble .journey-minimize {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 22px;
+    line-height: 1;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    transition: color 0.2s;
+    z-index: 10;
+}
+
+.portfolio-popup .message .bubble .journey-minimize:hover {
+    color: #ffffff;
+}
+
+/* Floating Action Button (FAB) */
+.portfolio-popup-fab {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #68c3a3, #52b3d9);
+    border: 2px solid #ffffff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    color: #ffffff;
+    font-size: 24px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 999999;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s;
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+.portfolio-popup-fab.is-visible {
+    display: flex;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.portfolio-popup-fab:hover {
+    transform: scale(1.1);
+}
+
+.portfolio-popup-fab:active {
+    transform: scale(0.95);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 576px) {
+    .portfolio-popup {
+        right: 20px;
+        bottom: 20px;
+        width: calc(100% - 40px);
+        max-width: 360px;
+    }
+    
+    .portfolio-popup .message {
+        font-size: 16px;
+        right: 0;
+    }
+    
+    .portfolio-popup .boy {
+        width: 104px;
+        height: 93px;
+        left: 10px;
+    }
+    
+    .portfolio-popup .boy .variant {
+        width: 88px;
+    }
+    
+    .portfolio-popup .boy .is-hi .arm {
+        width: 38px;
+        height: 54px;
+    }
+
+    .portfolio-popup .message .bubble {
+        padding: 15px 20px;
+    }
+
+    .portfolio-popup .message .answer {
+        font-size: 14px;
+        padding: 8px 12px;
+        margin-left: 10px;
+    }
+
+    .portfolio-popup-fab {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
 }

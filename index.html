@@ -40,8 +40,8 @@
     <link href="assets/css/style.css" rel="stylesheet" media="screen" />
     <!-- Responsive CSS -->
     <link href="assets/css/responsive.css" rel="stylesheet" />
-    <!-- Three.js Journey Popup CSS -->
-    <link href="assets/css/threejs-journey-popup.css" rel="stylesheet" />
+    <!-- Portfolio Popup CSS -->
+    <link href="assets/css/portfolio-popup.css" rel="stylesheet" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -322,7 +322,11 @@
                 <i class="fa fa-share-alt"></i> Share Portfolio
               </button>
               <div class="share-dropdown" id="shareDropdown">
-                <a href="javascript:void(0);" class="share-opt copy-link-opt" id="copyLinkBtn">
+                <a
+                  href="javascript:void(0);"
+                  class="share-opt copy-link-opt"
+                  id="copyLinkBtn"
+                >
                   <i class="fa fa-link"></i> Copy Link
                 </a>
                 <a
@@ -445,7 +449,9 @@
                 <h3 class="project-name">Batmobile Arena</h3>
                 <p class="project-tag">3D WebGL / Physics Game</p>
                 <p class="project-desc">
-                  An interactive 3D physics-based toy car driving game inspired by Bruno Simon's portfolio. Drive the Batmobile, jump on ramps, and smash voxel-block targets.
+                  An interactive 3D physics-based toy car driving game inspired
+                  by Bruno Simon's portfolio. Drive the Batmobile, jump on
+                  ramps, and smash voxel-block targets.
                 </p>
                 <div class="project-actions">
                   <a
@@ -1041,8 +1047,8 @@
     <script src="assets/js/cert-cards.js"></script>
     <script src="assets/js/dot-grid-particles.js"></script>
 
-    <!-- Three.js Journey Popup HTML -->
-    <div class="threejs-journey is-hover-none js-threejs-journey">
+    <!-- Portfolio Popup HTML -->
+    <div class="portfolio-popup is-hover-none js-portfolio-popup">
       <div class="message js-message">
         <div class="boy">
           <div class="variant is-hi">
@@ -1053,13 +1059,17 @@
           <div class="variant is-shrugging"></div>
         </div>
         <div class="bubble">
+          <button class="journey-minimize js-minimize" aria-label="Minimize">&times;</button>
           <div class="text">Hey! You seem to really enjoy my portfolio.</div>
           <div class="tip"></div>
         </div>
       </div>
       <div class="message js-message">
         <div class="bubble">
-          <div class="text">Would you like to learn how to create cool websites like this?</div>
+          <button class="journey-minimize js-minimize" aria-label="Minimize">&times;</button>
+          <div class="text">
+            Would you like to learn how to create cool websites like this?
+          </div>
           <div class="tip"></div>
         </div>
       </div>
@@ -1069,7 +1079,12 @@
           <span class="hover"></span>
           <span class="label">Nah, I'm good</span>
         </a>
-        <a href="https://threejs-journey.com?c=p2" target="_blank" rel="noopener" class="answer is-yes js-yes">
+        <a
+          href="https://threejs-journey.com?c=p2"
+          target="_blank"
+          rel="noopener"
+          class="answer is-yes js-yes"
+        >
           <span class="background"></span>
           <span class="hover"></span>
           <span class="label">Yes, teach me!</span>
@@ -1077,13 +1092,21 @@
       </div>
       <div class="message js-message">
         <div class="bubble">
-          <div class="text">Alright then.<br>Have fun and try not to break my portfolio!</div>
+          <button class="journey-minimize js-minimize" aria-label="Minimize">&times;</button>
+          <div class="text">
+            Alright then.<br />Have fun and try not to break my portfolio!
+          </div>
           <div class="tip"></div>
         </div>
       </div>
     </div>
 
-    <!-- Three.js Journey Popup Script -->
-    <script src="assets/js/threejs-journey-popup.js"></script>
+    <!-- Floating Action Button for minimized state -->
+    <div class="portfolio-popup-fab js-portfolio-popup-fab" aria-label="Restore chat">
+      <i class="fa fa-commenting-o"></i>
+    </div>
+
+    <!-- Portfolio Popup Script -->
+    <script src="assets/js/portfolio-popup.js"></script>
   </body>
 </html>

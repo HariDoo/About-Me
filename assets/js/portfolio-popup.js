@@ -1,20 +1,22 @@
-class ThreejsJourneyManager {
+class PortfolioPopupManager {
     constructor() {
-        this.$container = document.querySelector(".js-threejs-journey");
+        this.$container = document.querySelector(".js-portfolio-popup");
         if (!this.$container) return;
 
         this.$messages = [...this.$container.querySelectorAll(".js-message")];
         this.$yes = this.$container.querySelector(".js-yes");
         this.$no = this.$container.querySelector(".js-no");
+        this.$minimizes = [...this.$container.querySelectorAll(".js-minimize")];
+        this.$fab = document.querySelector(".js-portfolio-popup-fab");
 
         this.step = 0;
         this.maxStep = this.$messages.length - 1;
         
-        const storedSeen = window.localStorage.getItem("threejsJourneySeenCount");
+        const storedSeen = window.localStorage.getItem("portfolioPopupSeenCount");
         this.seenCount = storedSeen ? parseInt(storedSeen, 10) : 0;
         
         this.shown = false;
-        this.prevent = !!window.localStorage.getItem("threejsJourneyPrevent");
+        this.prevent = !!window.localStorage.getItem("portfolioPopupPrevent");
 
         if (!this.prevent) {
             this.setYesNo();
@@ -26,7 +28,7 @@ class ThreejsJourneyManager {
     setYesNo() {
         this.$yes.addEventListener("click", (e) => {
             e.preventDefault();
-            window.localStorage.setItem("threejsJourneyPrevent", "1");
+            window.localStorage.setItem("portfolioPopupPrevent", "1");
             setTimeout(() => {
                 this.hide();
             }, 1000);
@@ -61,13 +63,27 @@ class ThreejsJourneyManager {
         };
         this.$yes.addEventListener("mouseleave", resetHover);
         this.$no.addEventListener("mouseleave", resetHover);
+
+        this.$minimizes.forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.minimize();
+            });
+        });
+
+        if (this.$fab) {
+            this.$fab.addEventListener("click", () => {
+                this.restore();
+            });
+        }
     }
 
     setLog() {
         console.log("%cWhat are you doing here?! you sneaky developer...", "color: #32ffce");
         console.log("%cDo you want to learn how this portfolio has been made?", "color: #32ffce");
-        console.log("%cCheckout Three.js Journey 👉 https://threejs-journey.com?c=p2", "color: #32ffce");
-        console.log("%c— Bruno", "color: #777777");
+        console.log("%cCheckout the portfolio details inside index.html!", "color: #32ffce");
+        console.log("%c— Hari Prasath", "color: #777777");
     }
 
     setupTrigger() {
@@ -99,7 +115,7 @@ class ThreejsJourneyManager {
         this.$container.classList.add("is-active");
 
         // Increment seen count
-        window.localStorage.setItem("threejsJourneySeenCount", (this.seenCount + 1).toString());
+        window.localStorage.setItem("portfolioPopupSeenCount", (this.seenCount + 1).toString());
 
         // Step through dialog elements with delays
         this.next(); // Bubble 1: "Hey! You enjoy my site..."
@@ -151,9 +167,24 @@ class ThreejsJourneyManager {
             this.$container.classList.remove("is-active");
         }, 500);
     }
+
+    minimize() {
+        this.$container.classList.remove("is-active");
+        if (this.$fab) {
+            this.$fab.classList.add("is-visible");
+        }
+    }
+
+    restore() {
+        if (this.$fab) {
+            this.$fab.classList.remove("is-visible");
+        }
+        this.$container.classList.add("is-active");
+        this.updateMessages();
+    }
 }
 
 // Initialize on DOM ready
 window.addEventListener("DOMContentLoaded", () => {
-    new ThreejsJourneyManager();
+    new PortfolioPopupManager();
 });
