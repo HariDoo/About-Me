@@ -1529,6 +1529,12 @@ ul.list-check li::before {
   z-index: 2;
 }
 
+@media (min-width: 992px) {
+  .project-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .project-cards-grid {
     grid-template-columns: 1fr;
