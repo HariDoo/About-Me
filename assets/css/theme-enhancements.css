@@ -1042,52 +1042,8 @@ ul.list-check li::before {
 
 .project-cta-text {
   flex-grow: 1;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-}
-
-.cta-state-question {
-  grid-area: 1 / 1 / 2 / 2;
-  opacity: 1;
-  transform: translateY(0);
-  visibility: visible;
-  pointer-events: auto;
-  transition:
-    opacity 0.25s ease 0.12s,
-    transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1) 0.12s;
-}
-
-.cta-state-answer {
-  grid-area: 1 / 1 / 2 / 2;
-  opacity: 0;
-  transform: translateY(15px);
-  visibility: hidden;
-  pointer-events: none;
-  transition:
-    opacity 0.12s ease,
-    transform 0.12s ease;
-}
-
-/* Toggle states when celebrate is active - sequential transitions */
-.project-cta-banner.celebrate .cta-state-question {
-  opacity: 0;
-  transform: translateY(-15px);
-  visibility: hidden;
-  pointer-events: none;
-  transition:
-    opacity 0.12s ease,
-    transform 0.12s ease;
-}
-
-.project-cta-banner.celebrate .cta-state-answer {
-  opacity: 1;
-  transform: translateY(0);
-  visibility: visible;
-  pointer-events: auto;
-  transition:
-    opacity 0.25s ease 0.12s,
-    transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1) 0.12s;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-cta-title {
@@ -1626,6 +1582,13 @@ ul.list-check li::before {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.project-icon-box svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
 }
 
 .project-info {

@@ -563,18 +563,4 @@ jQuery(function ($) {
       }, 2500);
     }
   })();
-
-  // -------------------------------------------------------------
-  // Soulful Hover Animations Trigger
-  // -------------------------------------------------------------
-  (function () {
-    // Make the words celebrate when hovering the Get In Touch button
-    $(".project-cta-btn")
-      .on("mouseenter", function () {
-        $(".project-cta-banner").addClass("celebrate");
-      })
-      .on("mouseleave", function () {
-        $(".project-cta-banner").removeClass("celebrate");
-      });
-  })();
 });
